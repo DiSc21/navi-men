@@ -1,0 +1,9 @@
+# Don't track vim swp files
+**/**.swp
+**/**.swo
+
+# Don't track build stuff
+build/**
+
+# Don't track coverage outputs
+coverage/**
