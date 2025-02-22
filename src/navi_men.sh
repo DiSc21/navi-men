@@ -35,6 +35,7 @@
 ##   - CAPITAL_WITH_UNDERSCORES consts
 ## - weird: prefix name-references with 'nr_'+fun_name to ensure unique name
 ## - weird: try to avoid globals
+## - weird: pass non-"name-reference" function-parameters quoted
 ##
 ## @dependencies (non-optional):
 ## - bash 4.3 (for associative arrays with name references)
@@ -213,11 +214,11 @@ function createInputData()
   declare -n nria_create_input_data="$2"
 
   # read command to create menu array
-  #CMD_POST_PROC_LIST="$( jq -r '.list.cmd_post_proc_list ' < navi_men.json  | sed "s/~/${ESCAPED_HOME_DIR}/")"
-  CMD_POST_PROC_LIST="$( jq -r '.list.cmd_post_proc_list ' < navi_men.json )"
+  #CMD_POST_PROC_LIST="$( jq -r '.list.cmd_post_proc_list ' < "${config_json}"  | sed "s/~/${ESCAPED_HOME_DIR}/")"
+  CMD_POST_PROC_LIST="$( jq -r '.list.cmd_post_proc_list ' < "${config_json}" )"
   readonly CMD_POST_PROC_LIST
   # read command to create menu array
-  CMD_GET_LIST=( "$( jq -r '.list.cmd_get_list ' < navi_men.json ) | ${CMD_POST_PROC_LIST}" )
+  CMD_GET_LIST=( "$( jq -r '.list.cmd_get_list ' < "${config_json}" ) | ${CMD_POST_PROC_LIST}" )
   readonly CMD_GET_LIST
 
   # apply command to get list and apply post processing command
@@ -284,13 +285,13 @@ createMenuItems()
 
   # get pre command
   declare pre_cmd=""
-  if [[ "$( jq 'has("view_cmd_pre")' < navi_men.json )" == true ]]; then
-    pre_cmd="$( jq -r '.view_cmd_pre ' < navi_men.json )"
+  if [[ "$( jq 'has("view_cmd_pre")' < "${config_json}" )" == true ]]; then
+    pre_cmd="$( jq -r '.view_cmd_pre ' < "${config_json}" )"
   fi
   # get post command
   declare post_cmd=""
-  if [[ "$( jq 'has("view_cmd_post")' < navi_men.json )" == true ]]; then
-    post_cmd="$( jq -r '.view_cmd_post ' < navi_men.json )"
+  if [[ "$( jq 'has("view_cmd_post")' < "${config_json}" )" == true ]]; then
+    post_cmd="$( jq -r '.view_cmd_post ' < "${config_json}" )"
   fi
 
   tmp_option_rows=()
@@ -340,7 +341,7 @@ createMenuItems()
 }
 
 ##
-## @brief create vector of optional menu printed in selection menu
+## @brief create vector of optional menu items
 ##
 ## @param1[in]: configuration JSON
 ## @param2[in]: currently active mode
@@ -360,9 +361,9 @@ createOptionalMenuItems()
   declare -n nraa_create_optional_menu_items="$3"
 
   declare -a mode_keys
-  getKeysByNode navi_men.json "modes" mode_keys
+  getKeysByNode "${config_json}" "modes" mode_keys
   declare -a view_keys
-  getKeysByNode navi_men.json "views" view_keys
+  getKeysByNode "${config_json}" "views" view_keys
 
   if [[ "$( jq '.modes.'\""${active_mode}"\"' | has("enable_all")' < "${config_json}" )" == true ]] &&
      [[ "$( jq '.modes.'\""${active_mode}"\"'.enable_all' < "${config_json}" )" == true ]] ; then
@@ -471,42 +472,49 @@ getUserInput() {
 ## @param:
 ##
 navi_men() {
+
+  if [[ "$#" -ne "1" ]]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires a configuration file!" 1>&2
+    exit 1
+  elif [ ! -e "$( readlink -e "$1" )" ]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '$1' seems to not be a regular file!" 1>&2
+    exit 1
+  fi
+  local -r config_json="$( readlink -e "$1" )"
+
   # shellcheck disable=SC2034
   declare -a input_data
-  createInputData navi_men.json input_data
+  createInputData "${config_json}" input_data
   # shellcheck disable=SC2034
   declare -a mode_keys
-  getKeysByNode navi_men.json "modes" mode_keys
+  getKeysByNode "${config_json}" "modes" mode_keys
   # shellcheck disable=SC2034
   declare -a view_keys
-  getKeysByNode navi_men.json "views" view_keys
+  getKeysByNode "${config_json}" "views" view_keys
 
   local active_mode=""
-  getValueByKey navi_men.json "default_mode" mode_keys active_mode
+  getValueByKey "${config_json}" "default_mode" mode_keys active_mode
   local active_view=""
-  getValueByKey navi_men.json "default_view" view_keys active_view
+  getValueByKey "${config_json}" "default_view" view_keys active_view
 
   # shellcheck disable=SC2034
   declare -a view_commands
-  readViewCmds navi_men.json "${active_view}" view_commands
+  readViewCmds "${config_json}" "${active_view}" view_commands
 
   # shellcheck disable=SC2034
   declare -A menu_items_by_id
-  createMenuItems navi_men.json input_data view_commands menu_items_by_id
+  createMenuItems "${config_json}" input_data view_commands menu_items_by_id
 
   # shellcheck disable=SC2034
   declare -A menu_options_by_input_key
-  createOptionalMenuItems navi_men.json "${active_mode}" menu_options_by_input_key
+  createOptionalMenuItems "${config_json}" "${active_mode}" menu_options_by_input_key
 
   drawMenu menu_items_by_id menu_options_by_input_key
 
   declare user_selection
   getUserInput menu_items_by_id menu_options_by_input_key user_selection
   echo "${user_selection}"
-  #echo "${menu_items_by_id[*]}"
-  #echo "${menu_options_by_input_key[*]}"
-  #getUserInput "${MENU_OPTION_ROWS[@]}"
 }
 
-navi_men
+navi_men "$@"
 
