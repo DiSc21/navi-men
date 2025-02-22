@@ -1,0 +1,60 @@
+{
+    "name": "git-overview",
+    "selection_prompt": "Local GIT Repositories",
+    "default_mode": "cd",
+    "default_view": "",
+    "list": {
+        "cmd_get_list": "find ~/ ",
+        "cmd_post_proc_list": "grep \"\\.git$\" | grep -v .*vim/plugged  | grep -v .*tmux/plugins | sed 's/\\.git//' | sort"
+    },
+    "modes": {
+        "cd": {
+            "description": "Go directly to repository.",
+            "cmd": "pushd . > /dev/null; cd \"${menu_item}\"",
+            "continue": false,
+            "enable_all": false
+        },
+        "status": {
+            "description": "Show git status.",
+            "cmd": "pushd . > /dev/null; cd \"${menu_item}\"; git status; popd > /dev/null",
+            "continue": true,
+            "enable_all": true
+        },
+        "tree": {
+            "description": "Show directory tree.",
+            "cmd": "pushd . > /dev/null; cd \"${menu_item}\"; tree; popd > /dev/null",
+            "continue": true,
+            "enable_all": true
+        },
+        "fetch": {
+            "description": "Show directory tree.",
+            "cmd": "pushd . > /dev/null; cd \"${menu_item}\"; git fetch; popd > /dev/null",
+            "continue": true,
+            "enable_all": true
+        }
+    },
+    "view_cmd_pre": "pushd . > /dev/null; cd \"${menu_item}\"",
+    "view_cmd_post": "popd > /dev/null",
+    "views": {
+        "basics": {
+            "metadata": {
+                "description": "Simplistic list with repo names and remotes.",
+                "caption": "List of Local GIT Repositories:",
+                "ascii_art_abs_path": ""
+            },
+            "name": "git remote -v | head -n1 | awk '{print $2}' | sed 's/.*://' | sed 's/\\.git//'",
+            "remote": "git remote -v | head -n1 | awk '{print $2}' | sed 's/:.*//' | sed 's/.*@//' | awk '{print \"(\" $0 \")\"}'"
+        },
+        "details": {
+            "metadata": {
+                "description": "Show addtional repository states like branch, commits, ... .",
+                "caption": "List of Local GIT Repositories:",
+                "ascii_art_abs_path": ""
+            },
+            "name": "$(git remote -v | head -n1 | awk '{print $2}' | sed 's/.*://' | sed 's/\\.git//')",
+            "remote": "$(git remote -v | head -n1 | awk '{print $2}' | sed 's/:.*//'| sed 's/.*@//')",
+            "branch": "$(git rev-parse --abbrev-ref HEAD)",
+            "commits": "$(git rev-list --count HEAD)/$(git rev-list --count--all)"
+        }
+    }
+}
