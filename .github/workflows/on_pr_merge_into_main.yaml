@@ -1,0 +1,26 @@
+name: Push File
+
+on:
+  pull_request:
+    types:
+    - closed
+
+jobs:
+  copy-file:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'doctest.md'
+        destination_repo: 'DiSc21/DiSc21.github.io'
+        destination_folder: 'test-dir'
+        user_email: 'dirkschnabel03@aol.com'
+        user_name: 'DiSc21'
+        commit_message: 'A custom message for the commit'
