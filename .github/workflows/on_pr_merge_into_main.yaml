@@ -21,6 +21,6 @@ jobs:
         source_file: 'doctest.md'
         destination_repo: 'DiSc21/DiSc21.github.io'
         destination_folder: 'test-dir'
-        user_email: 'example@email.com'
-        user_name: 'DiSc21-PR-Action'
+        user_email: 'dirkschnabel03@aol.com'
+        user_name: 'DiSc21'
         commit_message: 'A custom message for the commit'
