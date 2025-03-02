@@ -53,8 +53,9 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'doc/docs/'
+          source_file: 'docs/*'
           destination_repo: 'DiSc21/DiSc21.github.io'
+          destination_folder: 'docs/'
           user_email: 'dirkschnabel03@aol.com'
           user_name: 'DiSc21'
           commit_message: 'A custom message for the commit'
