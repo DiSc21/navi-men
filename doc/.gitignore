@@ -1,0 +1,5 @@
+# Don't track build stuff
+build/**
+build_shellcheck/**
+build_coverage/**
+build_zsdoc/**

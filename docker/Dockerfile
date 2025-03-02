@@ -13,6 +13,7 @@ RUN apt-get install -y --no-install-recommends --fix-missing boxes lolcat
 RUN apt-get install -y --no-install-recommends --fix-missing ruby
 RUN gem install bashcov
 RUN apt-get install -y --no-install-recommends --fix-missing bats bats-assert bats-file bats-support
+RUN apt-get install -y --no-install-recommends --fix-missing shellcheck xmlstarlet
 
 # install bash doxygen
 RUN /bin/bash -c "mkdir -p /git_repos/bash_doxygen_filter \
@@ -28,6 +29,26 @@ RUN /bin/bash -c "mkdir -p /git_repos/zsdoc \
   && make \
   && make install "
 
+RUN gem install asciidoctor
+RUN apt-get install -y --no-install-recommends --fix-missing xmlstarlet pandoc
+
+RUN apt-get install -y --no-install-recommends --fix-missing python3.12 pip
+RUN apt-get install -y --no-install-recommends --fix-missing python3-pygments
+
+# install junit2html
+RUN /bin/bash -c "mkdir -p /git_repos/junit2html \
+  && cd /git_repos/junit2html \
+  && git clone https://github.com/inorton/junit2html.git . \
+  && python3 setup.py install \
+  && PATH=$PATH:/git_repos/junit2html"
+
+# # install cppcheck
+# RUN /bin/bash -c "mkdir -p /git_repos/cppcheck \
+#   && cd /git_repos/cppcheck \
+#   && git clone https://github.com/danmar/cppcheck.git . \
+#   && PATH=$PATH:/git_repos/cppcheck"
+
+RUN apt-get install -y --no-install-recommends --fix-missing cppcheck
 # set timezone
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone

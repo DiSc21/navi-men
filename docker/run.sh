@@ -20,6 +20,8 @@ readonly tmp_abs_project_path
 . "${tmp_abs_project_path}/docker/config.sh"
 
 RUNNING_DOCKER_CONTAINER="$(docker ps --format "{{.Names}}" || echo " " | grep -q "${DOCKER_NAME}")"
+echo "Docker name: ${DOCKER_NAME}"
+echo "Dockers running: ${RUNNING_DOCKER_CONTAINER}"
 readonly RUNNING_DOCKER_CONTAINER
 EXISTING_DOCKER_CONTAINER="$(docker ps -a --format "{{.Names}}" || echo " " | grep -q "${DOCKER_NAME}")"
 readonly EXISTING_DOCKER_CONTAINER

@@ -7,3 +7,4 @@ build/**
 
 # Don't track coverage outputs
 coverage/**
+doc/build_coverage/**
