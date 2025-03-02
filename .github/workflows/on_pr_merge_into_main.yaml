@@ -7,25 +7,54 @@ on:
 
 jobs:
   copy-file:
-    if: github.event.pull_request.merged == true
+    #if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: run tests
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: make build
+        shell: bash
+        run: |
+          make build
+
+      - name: make test
+        shell: bash
+        run: |
+          make test
+
+      - name: make bashcov
         shell: bash
         run: |
           make bashcov
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: make zsdoc
+        shell: bash
+        run: |
+          make zsdoc
+
+      - name: make shellcheck
+        shell: bash
+        run: |
+          make shellcheck
+
+      - name: make mkdocs
+        shell: bash
+        run: |
+          cd doc
+          mkdir build
+          make build_docker
+          make up
+          make offline
+          make stop
 
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'doctest.md'
+          source_file: 'doc/docs/'
           destination_repo: 'DiSc21/DiSc21.github.io'
-          destination_folder: 'test-dir'
           user_email: 'dirkschnabel03@aol.com'
           user_name: 'DiSc21'
           commit_message: 'A custom message for the commit'
