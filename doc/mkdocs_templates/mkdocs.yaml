@@ -88,7 +88,7 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - "overview": "readme.md"
+  - "overview": "index.md"
   - "coverage": "build_coverage/index.html"
   - "quality": "build_shellcheck/shellcheck.md"
   - "navi_men.sh": "build_zsdoc/doc_navi_men.md"

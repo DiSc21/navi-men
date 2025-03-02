@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 EXPOSE 81
 
 COPY ["./mkdocs_templates/.", "."]
-COPY ["./readme.md", "./docs/"]
+COPY ["./readme.md", "./docs/index.md"]
 COPY ["./build_coverage", "./docs/build_coverage"]
 COPY ["./build_shellcheck", "./docs/build_shellcheck"]
 COPY ["./build_zsdoc", "./docs/build_zsdoc"]

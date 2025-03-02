@@ -9,7 +9,7 @@ run: build_docker
 	docker run --rm -it -p 81:81 dischub_mkdocs_build_container
 
 up:
-	docker run --rm -td -p 81:81 --name testmkd -v "./docs":"/app/build":rw dischub_mkdocs_build_container
+	docker run --rm -td -p 81:81 --name testmkd -v "./docs":"/app/docs":rw dischub_mkdocs_build_container
 
 stop:
 	docker stop testmkd

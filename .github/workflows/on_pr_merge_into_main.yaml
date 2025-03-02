@@ -43,6 +43,7 @@ jobs:
         run: |
           cd doc
           mkdir build
+          mkdir docs
           make build_docker
           make up
           make offline
