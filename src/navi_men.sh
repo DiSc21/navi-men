@@ -1,27 +1,27 @@
 #!/usr/bin/env bash
 
-## ╭───────────────────────────────────────────────────────╮
-## │ NavigationMenu⠀ ⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⡀⠀⠀⠀⠀⠀⠀ │
-## │         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣧⠀⠀⠀⠀⠀⠀ │
-## │ @Author:⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣆⠀⠀⠀⠀⠀ │
-## │ -⠀TheDirkKnight⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀ │
-## │ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣇⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀  │
-## │ @Contact:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆⠀  │
-## │ -⠀github.com/DiSc21⠀⠀⠈⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆  │
-## │ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁⠀⠀⠀⠀⠀⣴⣿⠿⠛⠋⠁BTW⠈⠙⠛⠿⣿⣦⠀│
-## │ @Creation:⠀⠀           ⠉⠓⠂⠁⡀⠀⠐⠛⠁⠀⠀⠀⠀⠀⠘⠉I tried using⠉⠃│
-## │ -⠀2025/02/18⠀⠀⣀⣠⣴⡾⠛⠉⠀     ⢠⡇⠀⠀⠀⠀⠀⠀⣸⣿⣦⣄⡀⠀⠀ ⠀Arch!  ⠀⠀⠀⠀│
-## │ ⠀ ⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀.__, ⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀│
-## │ ⠀ ⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀    ⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄⠀⠀⠀⠀│
-## │ ⠀ ⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿⠀⠀⠀⠀│
-## │ ⠀ ⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣤⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿⠀⠀⠀⠀│
-## │ ⠀ ⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀│
-## │ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-## │ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ │
-## │ @License: MIT ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-## │ ⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
-## │ @Copyright: 2025 (©) TheDirkKnight                    │
-## ╰───────────────────────────────────────────────────────╯
+# ╭───────────────────────────────────────────────────────╮
+# │ NavigationMenu⠀ ⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⡀⠀⠀⠀⠀⠀⠀ │
+# │         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣧⠀⠀⠀⠀⠀⠀ │
+# │ @Author:⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⡿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣆⠀⠀⠀⠀⠀ │
+# │ -⠀TheDirkKnight⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠃⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀ │
+# │ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣇⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀  │
+# │ @Contact:⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⠋⠉⠙⣿⣿⣿⣆⠀  │
+# │ -⠀github.com/DiSc21⠀⠀⠈⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣟⣆  │
+# │ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢙⡻⢿⣿⡿⡟⣿⡿⠟⣛⠁⠀⠀⠀⠀⠀⣴⣿⠿⠛⠋⠁BTW⠈⠙⠛⠿⣿⣦⠀│
+# │ @Creation:⠀⠀           ⠉⠓⠂⠁⡀⠀⠐⠛⠁⠀⠀⠀⠀⠀⠘⠉I tried using⠉⠃│
+# │ -⠀2025/02/18⠀⠀⣀⣠⣴⡾⠛⠉⠀     ⢠⡇⠀⠀⠀⠀⠀⠀⣸⣿⣦⣄⡀⠀⠀ ⠀Arch!  ⠀⠀⠀⠀│
+# │ ⠀ ⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠀.__, ⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣷⣶⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀│
+# │ ⠀ ⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀    ⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡄⠀⠀⠀⠀│
+# │ ⠀ ⠀⡾⣿⣿⣿⣿⠿⠋⢁⣿⣿⣿⣿⣿⣿⣟⣥⣶⢿⡛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢙⡻⢷⣿⣿⣿⣿⣿⣿⣿⡟⠿⠿⣿⣿⣿⣿⠀⠀⠀⠀│
+# │ ⠀ ⠀⠀⣿⣿⠟⠁⠀⢠⣿⣿⣿⣿⣿⣿⡿⢟⣭⣶⣿⣷⣄⠀⠀⠀⣤⣀⡄⠀⠀⢀⣴⣿⣿⣷⣝⡻⣿⣿⣿⣿⣿⣿⣦⡀⠀⠉⠛⢿⠀⠀⠀⠀│
+# │ ⠀ ⠀⠀⠿⠁⠀⠀⠀⠋⠁⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⣿⣿⣶⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣮⡻⣿⣿⣿⠯⠉⠙⠀⠀⠀⠀⠀⠀⠀⠀│
+# │ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠽⠋⠠⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠷⠌⠻⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+# │ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ │
+# │ @License: MIT ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+# │ ⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+# │ @Copyright: 2025 (©) TheDirkKnight                    │
+# ╰───────────────────────────────────────────────────────╯
 
 ## @brief: Json based navigation menu for bash inspired
 ## by the X11 menu jgmenu https://github.com/jgmenu/jgmenu
@@ -29,6 +29,11 @@
 ## @StyleGuide (similar https://google.github.io/styleguide/shellguide.html):
 ## - prefer local/readonly over declare
 ## - don't use eval ... ( didn't get it to work without yet )
+## - don't use globals out of convenience
+## - add doxygen comments
+##   - first line '## @fn' for bash-doxygen filter
+##   - opening brace '{' in same line as functions declaration
+##   - all "non-trivial" functions should be documented
 ## - Variable/Function naming
 ##   - camelCase for functions (note: google wants snake_case, me not)
 ##   - snake_case_variables
@@ -48,32 +53,6 @@
 ##
 ## @usage: navimen.sh <config.json>
 ##
-## TODO (features):
-## - create additional options
-## - input checker
-## - view/mode changer
-## - view/mode description/info/caption
-## - width-checker
-## - view captions/ascii-art/...
-## - height-exceeding
-## - colors
-## - loccat
-##
-## TODO (brainfarts):
-## - ncurses
-## - custom json parser
-## - multipage/scroll
-## - multiline entries
-## - additional commandline args
-##
-## TODO (infra):
-## - GitHub actions
-## - code-formater
-## - unit tests
-## - README.md
-## - examples
-## - docu
-##
 
 set -o errexit
 set -o pipefail
@@ -89,6 +68,87 @@ readonly CLR_NC='\033[0m'
 readonly ERROR="${CLR_RED}Error${CLR_NC}"
 
 
+# ERROR CODES
+# -----------
+readonly ERR_WRONG_NUM_OF_INPUTS=10
+readonly ERR_FILE_NOT_FOUND=20
+readonly ERR_JSON_NODE_NOT_FOUND=30
+readonly ERR_JSON_NODE_WRONG_TYPE=31
+
+# JSON KEYS
+# ---------
+
+
+# --------------------------
+# SHARED_OBJECTS DEFINITIONS
+# --------------------------
+
+# SHARED_OBJECTS: VIEWS/METADATA DEFINITION
+readonly JSON_KEY_SHARED_OBJECT_METADATA="metadata"
+
+readonly JSON_KEY_METADATA_ATTR_ASCII_ART="ascii_art"
+readonly JSON_KEY_METADATA_ATTR_DESCRIPTION="description"
+readonly JSON_KEY_METADATA_ATTR_CAPTION="caption"
+readonly JSON_KEY_METADATA_ATTR_NAME="name"
+
+
+# -----------------------
+# CORE_OBJECT DEFINITIONS
+# -----------------------
+
+# CORE_OBJECT: CONFIG DEFINITION
+readonly JSON_KEY_CORE_OBJECT_CONFIG="config"
+
+readonly JSON_KEY_CONFIG_ATTR_LIST="list"
+readonly JSON_KEY_CONFIG_ATTR_DEFAULT_MODE="default_mode"
+readonly JSON_KEY_CONFIG_ATTR_DEFAULT_VIEW="default_view"
+readonly JSON_KEY_CONFIG_ATTR_DEFAULT_VIEW_CMD_PRE="default_view_cmd_pre"
+readonly JSON_KEY_CONFIG_ATTR_DEFAULT_VIEW_CMD_POST="default_view_cmd_post"
+
+readonly VALID_CONFIG_ATTRIBUTES=( \
+  "${JSON_KEY_CONFIG_ATTR_LIST}" \
+  "${JSON_KEY_CONFIG_ATTR_DEFAULT_MODE}" \
+  "${JSON_KEY_CONFIG_ATTR_DEFAULT_VIEW}" \
+  "${JSON_KEY_CONFIG_ATTR_DEFAULT_VIEW_CMD_PRE}" \
+  "${JSON_KEY_CONFIG_ATTR_DEFAULT_VIEW_CMD_POST}" \
+)
+
+# CORE_OBJECT: MODES DEFINITION
+readonly JSON_KEY_CORE_OBJECT_MODES="modes"
+
+readonly JSON_KEY_MODE_ATTR_CMD="cmd"
+readonly JSON_KEY_MODE_ATTR_CONTINUE="continue"
+readonly JSON_KEY_MODE_ATTR_ENABLE_ALL="enable_all"
+readonly JSON_KEY_MODE_ATTR_LIST_FILTER="list_filter"
+readonly JSON_KEY_MODE_ATTR_REFRESH="refresh_on_call"
+
+readonly VALID_MODE_OBJECT_ATTRIBUTES=( \
+  "${JSON_KEY_MODE_ATTR_CMD}" \
+  "${JSON_KEY_MODE_ATTR_CONTINUE}" \
+  "${JSON_KEY_MODE_ATTR_ENABLE_ALL}" \
+  "${JSON_KEY_MODE_ATTR_REFRESH}" \
+  "${JSON_KEY_MODE_ATTR_LIST_FILTER}" \
+)
+
+# CORE_OBJECT: VIEWS DEFINITION
+readonly JSON_KEY_CORE_OBJECT_VIEWS="views"
+
+
+# JSON BASE LEVEL DEFINITION
+# --------------------------
+readonly ESSENTIAL_JSON_CORE_OBJECTS=( \
+  "${JSON_KEY_CORE_OBJECT_CONFIG}" \
+  "${JSON_KEY_CORE_OBJECT_VIEWS}" \
+  "${JSON_KEY_CORE_OBJECT_MODES}" \
+)
+
+
+# JSON OBJECT DEFINITIONS
+# -----------------------
+
+readonly VALID_METADATA_ATTRIBUTES=( "description" "name" "enable_all" "list_filter" "refresh_on_call" )
+
+
 # # Get home via ~ and pwd
 # pushd ~ > /dev/null
 # HOME_DIR=$( pwd )
@@ -99,37 +159,57 @@ readonly ERROR="${CLR_RED}Error${CLR_NC}"
 # ESCAPED_HOME_DIR=$( printf '%s\n' "${HOME_DIR}" | sed -e 's/[]\/$*.^[]/\\&/g' )
 # readonly ESCAPED_HOME_DIR
 
+################################################################################
+#  888    888 8888888888 888      8888888b.  8888888888 8888888b.   .d8888b.   #
+#  888    888 888        888      888   Y88b 888        888   Y88b d88P  Y88b  #
+#  888    888 888        888      888    888 888        888    888 Y88b.       #
+#  8888888888 8888888    888      888   d88P 8888888    888   d88P  "Y888b.    #
+#  888    888 888        888      8888888P"  888        8888888P"      "Y88b.  #
+#  888    888 888        888      888        888        888 T88b         "888  #
+#  888    888 888        888      888        888        888  T88b  Y88b  d88P  #
+#  888    888 8888888888 88888888 888        8888888888 888   T88b  "Y8888P"   #
+################################################################################
+
+## @fn
 ##
-## @brief read configuration fields
+## @brief check if a json node exists
 ##
 ## @param1[in] config_json: file name of the json config
 ## @param2[in] node_name: the json node/field to parse
-## @param3[out] nrai_get_keys_by_node_return: string with parsed keys
+## @param3[out] nr_has_node_return: boolean return
 ##
-function getKeysByNode()
-{
+## @throws ERR_WRONG_NUM_OF_INPUTS: for wrong number of arguments
+## @throws ERR_FILE_NOT_FOUND: if config json not found
+##
+## @return true or falls via echo
+##
+hasNode() {
   if [[ "$#" -ne "3" ]]; then
-    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' expects exactly three arguments but got '$#'!" 1>&2
-    exit 1
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires three arguments but got '$#'!" 1>&2
+    exit "${ERR_WRONG_NUM_OF_INPUTS}"
   fi
   local -r config_json="$1"
   local -r node_name="$2"
-  declare -n nrai_get_keys_by_node_return="$3"
+  declare -n nr_has_node_return="$3"
+
+  if [ ! -f "${config_json}" ]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): configuration json '${config_json}' does not exist!" 1>&2
+    exit "${ERR_FILE_NOT_FOUND}"
+  fi
+
+  # split node name into subnodes
+  OIFS="${IFS}"
+  IFS='.'
+  read -ra jp_nodes <<<"${node_name}"
+  IFS="${OIFS}"
 
   local jq_has_cmd=""
-
-  # note: prepending '.' for main-level nodes (no dots)
-  if [[ "$( echo ".${node_name}" | grep -o "\." | wc -l )" == 1 ]]; then
+  if [[ "$(echo ".${node_name}" | grep -o "\." | wc -l)" == 1 ]]; then
     jq_has_cmd="has(\"${node_name}\")"
   else
-    # split node name into subnodes
-    OIFS="${IFS}";
-    IFS='.'; read -ra jp_nodes <<< "${node_name}";
-    IFS="${OIFS}"
-
     for i in "${!jp_nodes[@]}"; do
       # create jq has command to verify node existance
-      if (( "(( i+1 ))" == "${#jp_nodes[@]}" )); then
+      if (("(( i+1 ))" == "${#jp_nodes[@]}")); then
         jq_has_cmd+=" | has(\"${jp_nodes[-1]}\")"
       else
         jq_has_cmd+=".${jp_nodes[${i}]}"
@@ -137,65 +217,189 @@ function getKeysByNode()
     done
   fi
 
-  if [[ "$( jq "${jq_has_cmd}" < "${config_json}" )" == false ]]; then
-    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${config_json}' is not a valid NaviMen configuration file. Missing JSON node '${node_name}'" 1>&2
-    exit 1
+  if [[ "$(jq "${jq_has_cmd}" <"${config_json}")" == true ]]; then
+    nr_has_node_return=1
+  else
+    # shellcheck disable=SC2034
+    nr_has_node_return=0
   fi
-  # shellcheck disable=SC2034
-  read -ra nrai_get_keys_by_node_return <<<"$( jq -r ".${node_name} | keys[]" < "${config_json}"  | sed ':a;N;$!ba;s/\n/ /g')"
 }
 
+## @fn
+##
+## @brief get type of json node
+##
+## @param1[in] config_json: file name of the json config
+## @param2[in] node_name: the json node/field to parse
+## @param3[out] nrstr_get_json_type_return: string describing type of the requested node
+##
+## @throws ERR_WRONG_NUM_OF_INPUTS: for wrong number of arguments
+## @throws ERR_FILE_NOT_FOUND (via hasNode): if config json not found
+## @throws ERR_JSON_NODE_NOT_FOUND: if no json-node matching param2 is found
+##
+getJsonType() {
+  if [[ "$#" -ne "3" ]]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires three arguments but got '$#'!" 1>&2
+    exit "${ERR_WRONG_NUM_OF_INPUTS}"
+  fi
+  local -r config_json="$1"
+  local -r node_name="$2"
+  declare -n nrstr_get_json_type_return="$3"
+
+  local has_node_return=-1
+  hasNode "${config_json}" "${node_name}" has_node_return
+
+  if [[ "${has_node_return}" -ne "1" ]]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${config_json}' does not contain a node with name '${node_name}'!" 1>&2
+    exit "${ERR_JSON_NODE_NOT_FOUND}"
+  else
+    # shellcheck disable=SC2034
+    nrstr_get_json_type_return="$(jq -r ".${node_name} | type" <"${config_json}")"
+  fi
+}
+
+## @fn
+##
+## @brief read configuration fields
+##
+## @note only json-objects allowed.
+##
+## @param1[in] config_json: file name of the json config
+## @param2[in] node_name: the json node/field to parse
+## @param3[out] nrai_get_keys_by_node_return: string with parsed keys
+##
+## @throws ERR_WRONG_NUM_OF_INPUTS: for wrong number of arguments
+## @throws ERR_FILE_NOT_FOUND (via getJsonType): if config json not found
+## @throws ERR_JSON_NODE_NOT_FOUND (via getJsonType): if no json-node matching param2 is found
+## @throws ERR_JSON_NODE_WRONG_TYPE: if json-node is not a json-object
+##
+getKeysByNode() {
+  if [[ "$#" -ne "3" ]]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires three arguments but got '$#'!" 1>&2
+    exit "${ERR_WRONG_NUM_OF_INPUTS}"
+  fi
+  local -r config_json="$1"
+  local -r node_name="$2"
+  declare -n nrai_get_keys_by_node_return="$3"
+
+  local value_type="k"
+  getJsonType "${config_json}" "${node_name}" value_type
+  if [[ "${value_type}" != "object" ]]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${node_name}' is of type '${value_type}' which has no keys. Need node type 'object'!" 1>&2
+    exit "${ERR_JSON_NODE_WRONG_TYPE}"
+  fi
+
+  # shellcheck disable=SC2034
+  read -ra nrai_get_keys_by_node_return <<<"$(jq -r ".${node_name} | keys[]" <"${config_json}" | sed ':a;N;$!ba;s/\n/ /g')"
+}
+
+## @fn
+##
+## @brief read string/number/boolean-node as string and throw error for other json-node-types
+##
+## @param1[in] config_json: file name of the json config
+## @param2[in] node_name: the name of the node if want "evaluated"
+## @param3[out] nrstr_get_value_by_key_return: string with parsed keys
+##
+## @throws ERR_WRONG_NUM_OF_INPUTS: for wrong number of arguments
+## @throws ERR_FILE_NOT_FOUND (via getJsonType): if config json not found
+## @throws ERR_JSON_NODE_NOT_FOUND (via getJsonType): if no json-node matching param2 is found
+## @throws ERR_JSON_NODE_WRONG_TYPE: if json-node is not a json-object
+##
+getNodeAsString() {
+  if [[ "$#" -ne "3" ]]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires three arguments but got '$#'!" 1>&2
+    exit "${ERR_WRONG_NUM_OF_INPUTS}"
+  fi
+
+  local -r config_json="$1"
+  local -r node_name="$2"
+  declare -n nrstr_get_value_by_key_return="$3"
+
+  local value_type="k"
+  getJsonType "${config_json}" "${node_name}" value_type
+  if [[ "${value_type}" != "string" ]] && [[ "${value_type}" != "number" ]] && [[ "${value_type}" != "boolean" ]]; then
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${node_name}' is of type '${value_type}' but only 'string|number|bool'-nodes supported!" 1>&2
+    exit "${ERR_JSON_NODE_WRONG_TYPE}"
+  else
+    # shellcheck disable=SC2034
+    nrstr_get_value_by_key_return="$(jq -r ".${node_name}" <"${config_json}")"
+  fi
+}
+
+
+################################################################################
+# 88888b.   888    888 8888888 888     888888b.  8888888 8888888b.   .d8888b.  #
+# 88  "88b  888    888   888   888     888 "Y88b 88      888   Y88b d88P  Y88b #
+# 88  .88P  888    888   888   888     888   888 88      888    888 Y88b.      #
+# 888888K.  888    888   888   888     888   888 88888   888   d88P  "Y888b.   #
+# 88  "Y88b 888    888   888   888     888   888 88      8888888P"      "Y88b. #
+# 88    888 888    888   888   888     888   888 88      888 T88b         "888 #
+# 88   d88P Y88b..d88P   888   888     888 .d88P 88      888  T88b  Y88b  d88P #
+# 888888P"   "Y8888P"  8888888 8888888 888888P"  8888888 888   T88b  "Y8888P"  #
+################################################################################
+
+## @fn
 ##
 ## @brief read and check validity if default values are given and use first element if not.
 ##
-## @param3 list of valid default values
 ## @param1[in] config_json: file name of the json config
-## @param2[in] node_name: the json node/field to parse
-## @param2 name of the node keys  to read
-## @param3[out] nrai_get_keys_by_node_return: string with parsed keys
+## @param2[in] json_key: the name of the node if want "evaluated"
+## @param3[in] nrai_get_and_check_value_by_key_valid_values: list of valid default values
+## @param4[out] nrai_get_keys_by_node_return: string with parsed keys
 ##
 ## @return default value either user defined or just first element in list
 ##
-function getValueByKey()
-{
+getAndCheckStringByKey() {
   if [[ $# -lt 4 ]]; then
-    echo  -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires four arguments but got '$#'!" 1>&2
+    echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires four arguments but got '$#'!" 1>&2
     exit 1
   fi
   local -r config_json="$1"
   local -r json_key="$2"
-  declare -nr nrai_get_value_by_key_valid_values="$3"
-  declare -n nrstr_get_value_by_key_return="$4"
+  declare -nr nrai_get_and_check_value_by_key_valid_values="$3"
+  declare -n nrstr_get_and_check_value_by_key_return="$4"
 
-  # check if json node exists and read value
-  if [[ "$( jq 'has('\""${json_key}"\"')' < "${config_json}" )" == true ]]; then
-    default_value="$( jq -r '.'\""${json_key}"\"'' < "${config_json}")"
+  #olocal node_as_string=""
+  #ogetNodeAsString "${config_json}" "${node_name}" value_type
+  #oif [[ "${value_type}" != "string" ]] && [[ "${value_type}" != "number" ]] && [[ "${value_type}" != "boolean" ]]; then
+
+
+  if (getNodeAsString "${config_json}" "${json_key}" nrstr_get_and_check_value_by_key_return) && true; then
+    # Weird: I would have expected that the value was already assigned within the if block but seems it is not
+    getNodeAsString "${config_json}" "${json_key}" nrstr_get_and_check_value_by_key_return
+    echo "${nrstr_get_and_check_value_by_key_return}"
+    ## check if json node exists and read value
+    #if [[ "$(jq 'has('\""${json_key}"\"')' <"${config_json}")" == true ]]; then
+    #  default_value="$(jq -r '.'\""${json_key}"\"'' <"${config_json}")"
 
     # if default value is empty string use first value of valid values list
-    if [[ -z "${default_value}" ]]; then
-      nrstr_get_value_by_key_return="${nrai_get_value_by_key_valid_values[0]}"
+    if [[ -z "${nrstr_get_and_check_value_by_key_return}" ]]; then
+      nrstr_get_and_check_value_by_key_return="${nrai_get_and_check_value_by_key_valid_values[0]}"
     else
       found_match=false
-      for val in "${nrai_get_value_by_key_valid_values[@]}"; do
-        if [[ "${val}" == "${default_value}" ]]; then
+      for val in "${nrai_get_and_check_value_by_key_valid_values[@]}"; do
+        if [[ "${val}" == "${nrstr_get_and_check_value_by_key_return}" ]]; then
           found_match=true
-          nrstr_get_value_by_key_return="${default_value}"
-          break;
+          #nrstr_get_and_check_value_by_key_return="${default_value}"
+          break
         fi
       done
+
       # verify we got a match or exit if not
       if [[ "${found_match}" == false ]]; then
-        echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): default value '${default_value}' is not in list of valid values '${nrai_get_value_by_key_valid_values[*]}'." 1>&2
+        echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): default value '${nrstr_get_and_check_value_by_key_return}' is not in list of valid values '${nrai_get_and_check_value_by_key_valid_values[*]}'." 1>&2
         exit 1
       fi
     fi
   else
     # if no default value found in config json just use first element of valid values
     # shellcheck disable=SC2034
-    nrstr_get_value_by_key_return="${nrai_get_value_by_key_valid_values[0]}"
+    nrstr_get_and_check_value_by_key_return="${nrai_get_and_check_value_by_key_valid_values[0]}"
   fi
 }
 
+## @fn
 ##
 ## @brief parses configuration json and assembles a vector of string pairs (data, name)
 ##
@@ -204,8 +408,7 @@ function getValueByKey()
 ##
 ## @return non
 ##
-function createInputData()
-{
+createInputData() {
   if [[ $# -lt 2 ]]; then
     echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires exactly two arguments!" 1>&2
     exit 1
@@ -213,27 +416,27 @@ function createInputData()
   declare -r config_json="$1"
   declare -n nria_create_input_data="$2"
 
-  # read command to create menu array
-  #CMD_POST_PROC_LIST="$( jq -r '.list.cmd_post_proc_list ' < "${config_json}"  | sed "s/~/${ESCAPED_HOME_DIR}/")"
-  CMD_POST_PROC_LIST="$( jq -r '.list.cmd_post_proc_list ' < "${config_json}" )"
+  # read command for post processing menu list
+  CMD_POST_PROC_LIST="$(jq -r '.list.cmd_post_proc_list ' <"${config_json}")"
   readonly CMD_POST_PROC_LIST
-  # read command to create menu array
-  CMD_GET_LIST=( "$( jq -r '.list.cmd_get_list ' < "${config_json}" ) | ${CMD_POST_PROC_LIST}" )
+
+  # read command for creation of menu items list
+  CMD_GET_LIST=("$(jq -r '.list.cmd_get_list ' <"${config_json}") | ${CMD_POST_PROC_LIST}")
   readonly CMD_GET_LIST
 
   # apply command to get list and apply post processing command
   # shellcheck disable=SC2034
-  read -ra nria_create_input_data <<<"$( eval "${CMD_GET_LIST}" | sed ':a;N;$!ba;s/\n/ /g' )"
+  read -ra nria_create_input_data <<<"$(eval "${CMD_GET_LIST}" | sed ':a;N;$!ba;s/\n/ /g')"
 }
 
+## @fn
 ##
 ## @brief reads view commands
 ##
 ## @param1[in] config_json: file name of the json config
 ## @param2[in] json_view: the currently active view
 ##
-readViewCmds()
-{
+readViewCmds() {
   if [[ $# -lt 2 ]]; then
     echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires exactly two arguments!" 1>&2
     exit 1
@@ -242,19 +445,19 @@ readViewCmds()
   declare -r json_view="$2"
   declare -n nria_read_view_cmds="$3"
 
-  read -ra sub_views <<<"$( jq -r '.views.'\""${json_view}"\"' | keys[]' < "${config_json}" | sed ':a;N;$!ba;s/\n/ /g' )"
+  read -ra sub_views <<<"$(jq -r '.views.'\""${json_view}"\"' | keys[]' <"${config_json}" | sed ':a;N;$!ba;s/\n/ /g')"
   readonly sub_views
 
   for sub_view in "${sub_views[@]}"; do
     # ignore metadata
     if [ "${sub_view}" != "metadata" ]; then
-      column_cmd="$( jq -r '.views.'\""${json_view}"\"'.'\""${sub_view}"\"'' < "${config_json}" )"
-      nria_read_view_cmds+=( "${column_cmd}" )
+      column_cmd="$(jq -r '.views.'\""${json_view}"\"'.'\""${sub_view}"\"'' <"${config_json}")"
+      nria_read_view_cmds+=("${column_cmd}")
     fi
   done
 }
 
-
+## @fn
 ##
 ## @brief create vector of menu options printed in selection menu
 ##
@@ -270,8 +473,7 @@ readViewCmds()
 ## tracks the widest entry. The second inner loop then just fills the elements of the
 ## freshly created options-array with spaces to uniform sizes.
 ##
-createMenuItems()
-{
+createMenuItems() {
   if [[ $# -ne 4 ]]; then
     echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires exactly four arguments but got '$#'!" 1>&2
     exit 1
@@ -285,13 +487,13 @@ createMenuItems()
 
   # get pre command
   declare pre_cmd=""
-  if [[ "$( jq 'has("view_cmd_pre")' < "${config_json}" )" == true ]]; then
-    pre_cmd="$( jq -r '.view_cmd_pre ' < "${config_json}" )"
+  if [[ "$(jq 'has("view_cmd_pre")' <"${config_json}")" == true ]]; then
+    pre_cmd="$(jq -r '.view_cmd_pre ' <"${config_json}")"
   fi
   # get post command
   declare post_cmd=""
-  if [[ "$( jq 'has("view_cmd_post")' < "${config_json}" )" == true ]]; then
-    post_cmd="$( jq -r '.view_cmd_post ' < "${config_json}" )"
+  if [[ "$(jq 'has("view_cmd_post")' <"${config_json}")" == true ]]; then
+    post_cmd="$(jq -r '.view_cmd_post ' <"${config_json}")"
   fi
 
   tmp_option_rows=()
@@ -300,7 +502,6 @@ createMenuItems()
   done
   current_column=()
   column_width=0
-
 
   # loop the columns view commands and create one column after the other
   for cmd in "${nria_create_menu_items_cmds[@]}"; do
@@ -315,31 +516,32 @@ createMenuItems()
         eval "${pre_cmd}"
       fi
 
-      menu_txt="$( eval "${cmd}" )"
+      menu_txt="$(eval "${cmd}")"
 
       if [[ -n "${post_cmd}" ]]; then
         eval "${post_cmd}"
       fi
 
       # track entries and update column width if needed
-      current_column+=( "${menu_txt}" )
-      column_width=$(( "${#menu_txt}" > "${column_width}" ? "${#menu_txt}" : "${column_width}" ))
+      current_column+=("${menu_txt}")
+      column_width=$(("${#menu_txt}" > "${column_width}" ? "${#menu_txt}" : "${column_width}"))
     done
 
     # increment column width to ensure at least a single space seperation to next column
     ((++column_width))
     # fill each element of current column up to ensure same length
     for i in "${!current_column[@]}"; do
-      tmp_option_rows["${i}"]+="$( printf '%-'"${column_width}"'s' "${current_column[${i}]}" )"
+      tmp_option_rows["${i}"]+="$(printf '%-'"${column_width}"'s' "${current_column[${i}]}")"
     done
   done
 
   for i in "${!tmp_option_rows[@]}"; do
     # shellcheck disable=SC2034
-    nraa_create_menu_items_return["${i}"]="$( printf '%-'"${column_width}"'s' "${tmp_option_rows[${i}]}" )"
+    nraa_create_menu_items_return["${i}"]="$(printf '%-'"${column_width}"'s' "${tmp_option_rows[${i}]}")"
   done
 }
 
+## @fn
 ##
 ## @brief create vector of optional menu items
 ##
@@ -348,8 +550,7 @@ createMenuItems()
 ##
 ## @param3[out]: associative array to assemble with optional options
 ##
-createOptionalMenuItems()
-{
+createOptionalMenuItems() {
   if [[ $# -ne 3 ]]; then
     echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires exactly two arguments!" 1>&2
     exit 1
@@ -365,21 +566,34 @@ createOptionalMenuItems()
   declare -a view_keys
   getKeysByNode "${config_json}" "views" view_keys
 
-  if [[ "$( jq '.modes.'\""${active_mode}"\"' | has("enable_all")' < "${config_json}" )" == true ]] &&
-     [[ "$( jq '.modes.'\""${active_mode}"\"'.enable_all' < "${config_json}" )" == true ]] ; then
-       nraa_create_optional_menu_items["a"]=( printf "%s\n" "apply all" );
+  if [[ "$(jq '.modes.'\""${active_mode}"\"' | has("enable_all")' <"${config_json}")" == true ]] &&
+    [[ "$(jq '.modes.'\""${active_mode}"\"'.enable_all' <"${config_json}")" == true ]]; then
+    nraa_create_optional_menu_items["a"]="$(printf "%s\n" "apply all")"
   fi
   if [[ ${#mode_keys} -gt 1 ]]; then
-    nraa_create_optional_menu_items["v"]="$( printf "%s\n" "switch view" )"
+    nraa_create_optional_menu_items["v"]="$(printf "%s\n" "switch view")"
   fi
   if [[ ${#view_keys} -gt 1 ]]; then
-    nraa_create_optional_menu_items["m"]="$( printf "%s\n" "switch mode" )"
+    nraa_create_optional_menu_items["m"]="$(printf "%s\n" "switch mode")"
   fi
-  nraa_create_optional_menu_items["h"]="$( printf "%s\n" "hide legend" )"
+  nraa_create_optional_menu_items["h"]="$(printf "%s\n" "hide legend")"
   # shellcheck disable=SC2034
-  nraa_create_optional_menu_items["q"]="$( printf "%s\n" "quit" )"
+  nraa_create_optional_menu_items["q"]="$(printf "%s\n" "quit")"
 }
 
+
+################################################################################
+# 8888888 888888b.   .d88888b.  88b    88 88888888 8888888 88b    888 88888b.  #
+# 88      88   Y88b d88P" "Y88b 888b   88    88    88      888b   888 88 "Y88b #
+# 88      88    888 888     888 8888b  88    88    88      8888b  888 88   888 #
+# 88888   88   d88P 888     888 88Y88b 88    88    88888   88Y88b 888 88   888 #
+# 88      888888P"  888     888 88 Y88b88    88    88      88 Y88b888 88   888 #
+# 88      88 T88b   888     888 88  Y8888    88    88      88  Y88888 88   888 #
+# 88      88  T88b  Y88b. .d88P 88   Y888    88    88      88   Y8888 88 .d88P #
+# 88      88   T88b  "Y88888P"  88    Y88    88    8888888 88    Y888 88888P"  #
+################################################################################
+
+## @fn
 ##
 ## @brief Draws the menu.
 ##
@@ -394,19 +608,20 @@ drawMenu() {
   declare -nr nraa_draw_menu_items="$1"
   declare -nr nraa_draw_menu_opts="$2"
 
-  echo "Local GIT Repositories:" > /tmp/local_git_repos
+  echo "Local GIT Repositories:" >/tmp/local_git_repos
   for i in "${!nraa_draw_menu_items[@]}"; do
-    printf "%3s) %-s\n" "${i}" "${nraa_draw_menu_items[${i}]}" >> /tmp/local_git_repos
+    printf "%3s) %-s\n" "${i}" "${nraa_draw_menu_items[${i}]}" >>/tmp/local_git_repos
   done
 
-  echo "Options:" >> /tmp/local_git_repos
+  echo "Options:" >>/tmp/local_git_repos
   for i in "${!nraa_draw_menu_opts[@]}"; do
-    printf "%3s) %-s\n" "${i}" "${nraa_draw_menu_opts[${i}]}" >> /tmp/local_git_repos
+    printf "%3s) %-s\n" "${i}" "${nraa_draw_menu_opts[${i}]}" >>/tmp/local_git_repos
   done
 
   boxes -d columns -p a2v1 /tmp/local_git_repos
 }
 
+## @fn
 ##
 ## @brief get user input the menu.
 ##
@@ -466,6 +681,7 @@ getUserInput() {
   #fi
 }
 
+## @fn
 ##
 ## @brief .
 ##
@@ -476,11 +692,11 @@ navi_men() {
   if [[ "$#" -ne "1" ]]; then
     echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '${FUNCNAME[0]}' requires a configuration file!" 1>&2
     exit 1
-  elif [ ! -e "$( readlink -e "$1" )" ]; then
+  elif [ ! -e "$(readlink -e "$1")" ]; then
     echo -e "${ERROR} (${0##*/} - ${FUNCNAME[*]}): '$1' seems to not be a regular file!" 1>&2
     exit 1
   fi
-  local -r config_json="$( readlink -e "$1" )"
+  local -r config_json="$(readlink -e "$1")"
 
   # shellcheck disable=SC2034
   declare -a input_data
@@ -493,9 +709,9 @@ navi_men() {
   getKeysByNode "${config_json}" "views" view_keys
 
   local active_mode=""
-  getValueByKey "${config_json}" "default_mode" mode_keys active_mode
+  getAndCheckStringByKey "${config_json}" "default_mode" mode_keys active_mode
   local active_view=""
-  getValueByKey "${config_json}" "default_view" view_keys active_view
+  getAndCheckStringByKey "${config_json}" "default_view" view_keys active_view
 
   # shellcheck disable=SC2034
   declare -a view_commands
@@ -516,5 +732,7 @@ navi_men() {
   echo "${user_selection}"
 }
 
-navi_men "$@"
-
+# batsify script, i.e. ensure nothing is executed if this file is just sourced/loaded
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  navi_men "$@"
+fi

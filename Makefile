@@ -1,5 +1,3 @@
-# note, ${base_dir} is defined in the Makefiles that include this Makefile.in
-
 .PHONY: build
 build:
 	docker/run.sh --build
@@ -19,6 +17,12 @@ stop:
 .PHONY: remove
 remove:
 	docker/run.sh --remove
+
+
+.PHONY: test
+test:
+	docker/run.sh --cmd "./test/scripts/run_bats.sh"
+
 
 .PHONY: restart
 restart: stop build start
