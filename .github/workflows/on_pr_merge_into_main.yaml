@@ -54,7 +54,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'site/*'
+          source_file: 'doc/build/*'
           destination_repo: 'DiSc21/DiSc21.github.io'
           destination_folder: 'navi_men_doc/'
           user_email: 'dirkschnabel03@aol.com'
