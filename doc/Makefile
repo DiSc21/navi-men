@@ -18,7 +18,7 @@ into:
 	docker exec -it testmkd  /bin/sh
 
 offline:
-	docker exec -t testmkd  /bin/sh -c "mkdocs build && cp -r site/* docs/"
+	docker exec -t testmkd  /bin/sh -c "mkdocs build"
 
 
 release:
