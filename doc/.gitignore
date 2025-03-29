@@ -3,3 +3,5 @@ build/**
 build_shellcheck/**
 build_coverage/**
 build_zsdoc/**
+
+static_html/**
