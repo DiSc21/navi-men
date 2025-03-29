@@ -47,8 +47,6 @@ theme:
       #- navigation.instant
 
 plugins:
-  - search:
-      indexing: 'full'
   - offline:
       enabled: true
   - privacy:
@@ -88,7 +86,7 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - "overview": "index.md"
+  - "overview": "readme.md"
   - "coverage": "build_coverage/index.html"
   - "quality": "build_shellcheck/shellcheck.md"
   - "navi_men.sh": "build_zsdoc/doc_navi_men.md"

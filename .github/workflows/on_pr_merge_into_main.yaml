@@ -48,16 +48,15 @@ jobs:
           make up
           make offline
           make stop
-          cd ..
 
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'doc/static_html/*'
+          source_file: 'doc/static_html'
           destination_repo: 'DiSc21/DiSc21.github.io'
-          destination_folder: 'navi_men_doc/static_html'
+          destination_folder: 'navi_men_project/'
           user_email: 'dirkschnabel03@aol.com'
           user_name: 'DiSc21'
           commit_message: '[AUTO-GEN] Update Project Navi-Men Documentation'
