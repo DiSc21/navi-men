@@ -1,4 +1,5 @@
 # project coverage history
-@ PR-name,covered_lines,coverage_pct
-PR-6,127,34.51
-PR-7,185,50.14
+@ PR-name,relevant_lines,covered_lines,coverage_pct
+PR-6,375,127,34.51
+PR-7,371,185,50.14
+PR-8,439,266,60.59
