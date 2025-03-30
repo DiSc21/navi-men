@@ -97,6 +97,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]=""
   nm_states["${MDKEY_STATE_SYS_SUPPORT_COLOR}"]=""
   nm_states["${MDKEY_STATE_VIEW_DRAW_BOXES}"]=""
@@ -139,6 +141,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]="yes"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_COLOR}"]=""
   nm_states["${MDKEY_STATE_VIEW_DRAW_BOXES}"]=""
@@ -190,6 +194,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]="yes"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_COLOR}"]="yes"
   nm_states["${MDKEY_STATE_VIEW_DRAW_BOXES}"]=""
@@ -240,6 +246,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]="yes"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_COLOR}"]="yes"
   nm_states["${MDKEY_STATE_VIEW_DRAW_BOXES}"]=""
