@@ -17,6 +17,7 @@ tmp_abs_project_path="$(readlink -e "$(dirname "${BASH_SOURCE[0]}")/../")"
 readonly tmp_abs_project_path
 
 # shellcheck source-path=SCRIPTDIR
+# shellcheck disable=SC1091
 . "${tmp_abs_project_path}/docker/config.sh"
 
 RUNNING_DOCKER_CONTAINER="$(docker ps --format "{{.Names}}" || echo " " | grep -q "${DOCKER_NAME}")"
@@ -81,13 +82,13 @@ removeDocker() {
 
 runCommand() {
   if [[ -n "${RUNNING_DOCKER_CONTAINER}" ]]; then
-    docker exec -t "${DOCKER_NAME}" /bin/bash -c "$*"
+    docker exec -t --user "$(id -u)" "${DOCKER_NAME}" /bin/bash -c "$*"
   else
     if [[ -z "${EXISTING_DOCKER_CONTAINER}" ]]; then
       buildDocker
     fi
     startDocker
-    docker exec -t "${DOCKER_NAME}" /bin/bash -c "$*"
+    docker exec -t --user "$(id -u)" "${DOCKER_NAME}" /bin/bash -c "$*"
   fi
 }
 
@@ -117,5 +118,6 @@ parseInputs() {
 # batsify script, i.e. ensure nothing is executed if this file is just sourced/loaded
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]
 then
+  echo "hello $(id -u)"
   parseInputs "$@"
 fi

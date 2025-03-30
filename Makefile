@@ -25,22 +25,27 @@ test:
 
 .PHONY: bashcov
 bashcov:
-	docker/run.sh --cmd "bashcov -- ./test/scripts/run_bats.sh && mv coverage doc/build_coverage"
+	docker/run.sh --cmd "bashcov -- ./test/scripts/run_bats.sh 1 && if [ -d doc/build_coverage ]; then rm -rf doc/build_coverage; fi; cp -r coverage doc/build_coverage"
+
+.PHONY: charts
+charts:
+	docker/run.sh --cmd "termgraph .project_history/shellcheck --color {red,yellow,green}; \
+		unbuffer termgraph .project_history/shellcheck --color {red,yellow,green} | \
+			/git_repos/ansi2html/ansi2html.sh --bg=dark > test.html; \
+		termgraph .project_history/coverage --custom-tick "-" --color {yellow,green} --width 50 ; \
+		unbuffer termgraph .project_history/coverage --custom-tick "😀" --width 50 | \
+			/git_repos/ansi2html/ansi2html.sh --bg=dark >> test.html; \
+		termgraph .project_history/coverage --stacked --color {yellow,green}; \
+		unbuffer termgraph .project_history/coverage --stacked --different-scale --vertical --color {yellow,green} | tee -a | \
+			/git_repos/ansi2html/ansi2html.sh --bg=dark >> test.html "
+
+#https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh
 
 .PHONY: shellcheck
 shellcheck:
 	docker/run.sh --cmd "if [ -d doc/build_shellcheck ]; then rm -rf doc/build_shellcheck; fi;  mkdir doc/build_shellcheck; \
-	shellcheck -f checkstyle ./src/navi_men.sh ./docker/run.sh ./test/scripts/run_bats.sh > doc/build_shellcheck/checkstyle_shellcheck.xml; \
-	shellcheck -f gcc ./src/navi_men.sh ./docker/run.sh ./test/scripts/run_bats.sh > doc/build_shellcheck/gcc_shellcheck.xml; \
-	shellcheck -f checkstyle ./src/navi_men.sh ./docker/run.sh ./test/scripts/run_bats.sh | \
-	xmlstarlet tr doc/checkstyle2junit.xslt > doc/build_shellcheck/shellcheck.xml; \
-	junit2html doc/build_shellcheck/shellcheck.xml --summary-matrix > doc/build_shellcheck/shellcheck.html; \
-	pandoc -f jats -t html doc/build_shellcheck/gcc_shellcheck.xml > doc/build_shellcheck/pandoc_shellcheck.html"
-	#/git_repos/cppcheck/htmlreport/cppcheck-htmlreport \
-	#	--source-dir=src \
-	#	--title=navi_men_quality \
-	#	--file=cppref.xml \
-	#	--report-dir=doc/build_shellcheck; \
+	shellcheck ./src/*.bash ./docker/run.sh ./test/scripts/run_bats.sh > doc/build_shellcheck/checkstyle_shellcheck.xml; \
+	shellcheck ./src/*.bash ./docker/run.sh ./test/scripts/run_bats.sh"
 
 .PHONY: zsdoc
 zsdoc:
