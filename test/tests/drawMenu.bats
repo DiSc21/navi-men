@@ -97,6 +97,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]=""
@@ -105,6 +107,9 @@ setup() {
   nm_states["${MDKEY_STATE_VIEW_HAS_COLOR}"]=""
 
   # create some simple mocks
+  getCursorPos() {
+    true
+  }
   drawMenuItems() {
     true
   }
@@ -118,6 +123,7 @@ setup() {
     echo "boxes"
   }
 
+  export -f getCursorPos
   export -f drawMenuItems
   export -f drawMenuOpts
   export -f boxes
@@ -141,6 +147,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]="yes"
@@ -149,6 +157,9 @@ setup() {
   nm_states["${MDKEY_STATE_VIEW_HAS_COLOR}"]=""
 
   # create some simple mocks
+  getCursorPos() {
+    true
+  }
   drawMenuItems() {
     true
   }
@@ -164,6 +175,7 @@ setup() {
     echo "boxes"
   }
 
+  export -f getCursorPos
   export -f drawMenuItems
   export -f drawMenuOpts
   export -f boxes
@@ -194,6 +206,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]="yes"
@@ -202,6 +216,9 @@ setup() {
   nm_states["${MDKEY_STATE_VIEW_HAS_COLOR}"]=""
 
   # create some simple mocks
+  getCursorPos() {
+    true
+  }
   drawMenuItems() {
     true
   }
@@ -215,6 +232,7 @@ setup() {
     echo "boxes"
   }
 
+  export -f getCursorPos
   export -f drawMenuItems
   export -f drawMenuOpts
   export -f boxes
@@ -246,6 +264,8 @@ setup() {
   local -A menu_items=()
   local -r file_path="/tmp/navi_men_test_drawMenu$BASHPID"
 
+  nm_states["${MDKEY_STATE_TERM_CURS_X}"]="0"
+  nm_states["${MDKEY_STATE_TERM_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_X}"]="0"
   nm_states["${MDKEY_STATE_TERM_INIT_CURS_Y}"]="0"
   nm_states["${MDKEY_STATE_SYS_SUPPORT_BOXES}"]="yes"
@@ -254,6 +274,9 @@ setup() {
   nm_states["${MDKEY_STATE_VIEW_HAS_COLOR}"]=""
 
   # create some simple mocks
+  getCursorPos() {
+    true
+  }
   drawMenuItems() {
     true
   }
@@ -270,6 +293,7 @@ setup() {
     echo "${foo}"
   }
 
+  export -f getCursorPos
   export -f drawMenuItems
   export -f drawMenuOpts
   export -f boxes
