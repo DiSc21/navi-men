@@ -50,11 +50,7 @@ shellcheck:
 .PHONY: zsdoc
 zsdoc:
 	docker/run.sh --cmd "zsd --bash --verbose --scomm src/navi_men.sh docker/run.sh; \
-		if [ -d doc/build_zsdoc ]; then rm -rf doc/build_zsdoc; fi;  mkdir doc/build_zsdoc; \
-		asciidoctor -b docbook -a leveloffset=+1 -o - zsdoc/navi_men.sh.adoc | \
-		pandoc --wrap=preserve -t markdown_strict -f docbook - > doc/build_zsdoc/doc_navi_men.md; \
-		asciidoctor -b docbook -a leveloffset=+1 -o - zsdoc/run.sh.adoc | \
-		pandoc --wrap=preserve -t markdown_strict -f docbook - > doc/build_zsdoc/doc_docker_run.md;"
+		if [ -d doc/build_zsdoc ]; then rm -rf doc/build_zsdoc; fi; mv zsdoc doc/build_zsdoc"
 
 .PHONY: restart
 restart: stop build start
