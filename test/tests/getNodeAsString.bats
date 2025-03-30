@@ -36,12 +36,15 @@
 
 
 setup() {
-  declare -gr TMP_TEST_CONFIG="/tmp/bats_navi_men_test_config.json"
+  declare -r TEST_PID="$BASHPID"
+  declare -gr TMP_TEST_CONFIG="/tmp/bats_navi_men_test_${TEST_PID}_config.json"
 
   load '/usr/lib/bats/bats-support/load'
   load '/usr/lib/bats/bats-assert/load'
 
-  load '../../src/navi_men.sh'
+  load '../../src/navi_men.conf'
+  load '../../src/navi_men_aux_jq.bash'
+  #load '../../src/navi_men.sh'
 
   echo "{" > "${TMP_TEST_CONFIG}"
   echo "  \"main_node_one\": {" >> "${TMP_TEST_CONFIG}"

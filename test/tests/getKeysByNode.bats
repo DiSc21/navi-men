@@ -36,12 +36,15 @@
 
 
 setup() {
-  export TMP_TEST_CONFIG="/tmp/bats_navi_men_test_01.json"
+  declare -r TEST_PID="$BASHPID"
+  declare -gr TMP_TEST_CONFIG="/tmp/bats_navi_men_test_${TEST_PID}_config.json"
 
   load '/usr/lib/bats/bats-support/load'
   load '/usr/lib/bats/bats-assert/load'
 
-  load '../../src/navi_men.sh'
+  load '../../src/navi_men.conf'
+  load '../../src/navi_men_aux_jq.bash'
+  #load '../../src/navi_men.sh'
 
   echo "{" > "${TMP_TEST_CONFIG}"
   echo "  \"main_node_one\": {" >> "${TMP_TEST_CONFIG}"
@@ -125,19 +128,19 @@ teardown() {
 
 @test "navi_men::getKeysByNode fail_on_null_node" {
   declare -a keys;
-  run getKeysByNode /tmp/bats_navi_men_test_01.json "main_node_one.sub_object.sub_sub_null" keys
+  run getKeysByNode "${TMP_TEST_CONFIG}" "main_node_one.sub_object.sub_sub_null" keys
   assert_failure
   assert_equal "$status" "${ERR_JSON_NODE_WRONG_TYPE}"
 }
 @test "navi_men::getKeysByNode fail_on_null_string" {
   declare -a keys;
-  run getKeysByNode /tmp/bats_navi_men_test_01.json "main_node_one.sub_object.sub_sub_string" keys
+  run getKeysByNode "${TMP_TEST_CONFIG}" "main_node_one.sub_object.sub_sub_string" keys
   assert_failure
   assert_equal "$status" "${ERR_JSON_NODE_WRONG_TYPE}"
 }
 @test "navi_men::getKeysByNode fail_on_number_node" {
   declare -a keys;
-  run getKeysByNode /tmp/bats_navi_men_test_01.json "main_node_one.sub_object.sub_sub_number" keys
+  run getKeysByNode "${TMP_TEST_CONFIG}" "main_node_one.sub_object.sub_sub_number" keys
   assert_failure
   assert_equal "$status" "${ERR_JSON_NODE_WRONG_TYPE}"
 }
@@ -149,18 +152,18 @@ teardown() {
 
 @test "navi_men::getKeysByNode find_sub_level_node_without_keys" {
   declare -a keys;
-  getKeysByNode /tmp/bats_navi_men_test_01.json "main_node_one.sub_object.sub_sub_empty" keys
+  getKeysByNode "${TMP_TEST_CONFIG}" "main_node_one.sub_object.sub_sub_empty" keys
   assert_equal "${#keys[@]}" 0
 }
 @test "navi_men::getKeysByNode find_top_level_node" {
   declare -a keys;
-  getKeysByNode /tmp/bats_navi_men_test_01.json "main_node_one" keys
+  getKeysByNode "${TMP_TEST_CONFIG}" "main_node_one" keys
   assert_equal "${#keys[@]}" 1
   assert_equal "${keys[0]}" "sub_object"
 }
 @test "navi_men::getKeysByNode find_sub_level_node" {
   declare -a keys
-  getKeysByNode /tmp/bats_navi_men_test_01.json "main_node_one.sub_object" keys
+  getKeysByNode "${TMP_TEST_CONFIG}" "main_node_one.sub_object" keys
   assert_equal "${#keys[@]}" 6
 }
 
