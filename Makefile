@@ -39,13 +39,13 @@ charts:
 		unbuffer termgraph .project_history/coverage --stacked --different-scale --vertical --color {yellow,green} | tee -a | \
 			/git_repos/ansi2html/ansi2html.sh --bg=dark >> test.html "
 
-#https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh
 
 .PHONY: shellcheck
 shellcheck:
 	docker/run.sh --cmd "if [ -d doc/build_shellcheck ]; then rm -rf doc/build_shellcheck; fi;  mkdir doc/build_shellcheck; \
 	shellcheck ./src/*.bash ./docker/run.sh ./test/scripts/run_bats.sh > doc/build_shellcheck/checkstyle_shellcheck.xml; \
 	shellcheck ./src/*.bash ./docker/run.sh ./test/scripts/run_bats.sh"
+
 
 .PHONY: zsdoc
 zsdoc:

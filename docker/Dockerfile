@@ -28,6 +28,7 @@ RUN /bin/bash -c "mkdir -p /git_repos/ansi2html \
   && curl -O https://raw.githubusercontent.com/pixelb/scripts/refs/heads/master/scripts/ansi2html.sh \
   && PATH=$PATH:/git_repos/ansi2html"
 
+
 # install bash doxygen
 RUN /bin/bash -c "mkdir -p /git_repos/bash_doxygen_filter \
   && cd /git_repos/bash_doxygen_filter \
@@ -41,6 +42,7 @@ RUN /bin/bash -c "mkdir -p /git_repos/zsdoc \
   && git clone https://github.com/z-shell/zsdoc.git . \
   && make \
   && make install "
+
 
 RUN chmod -R 777 /git_repos/ansi2html
 RUN chmod -R 777 /git_repos/zsdoc
@@ -57,12 +59,6 @@ RUN apt-get install -y --no-install-recommends --fix-missing python3-setuptools
 RUN pip3 install --no-cache-dir --upgrade pip
 RUN pip3 install --no-cache-dir --break-system-packages termgraph
 
-## install junit2html
-#RUN /bin/bash -c "mkdir -p /git_repos/junit2html \
-#  && cd /git_repos/junit2html \
-#  && git clone https://github.com/inorton/junit2html.git . \
-#  && python3 setup.py install \
-#  && PATH=$PATH:/git_repos/junit2html"
 
 # # install cppcheck
 # RUN /bin/bash -c "mkdir -p /git_repos/cppcheck \
