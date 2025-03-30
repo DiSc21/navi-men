@@ -1,0 +1,7 @@
+# project shellcheck history
+@ Errors,Warnings,Info
+PR-1,5,12,6
+PR-2,5,9,4
+PR-3,5,9,4
+PR-4,2,3,0
+PR-5,0,0,0
