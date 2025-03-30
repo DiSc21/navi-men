@@ -42,7 +42,6 @@ setup() {
   load '../../src/navi_men.conf'
   load '../../src/navi_men_states.conf'
 
-  load '../../src/navi_men_menu.bash'
   load '../../src/navi_men_state_setter.bash'
 }
 
