@@ -49,7 +49,7 @@ shellcheck:
 
 .PHONY: zsdoc
 zsdoc:
-	docker/run.sh --cmd "zsd --bash --verbose --scomm src/navi_men.sh docker/run.sh; \
+	docker/run.sh --cmd "zsd --bash --verbose --scomm src/*.bash docker/run.sh; \
 		if [ -d doc/build_zsdoc ]; then rm -rf doc/build_zsdoc; fi; mv zsdoc doc/build_zsdoc"
 
 .PHONY: restart
